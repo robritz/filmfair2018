@@ -1,0 +1,40 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.carousel{
+  margin-top:10px;
+  margin-bottom:35px;
+  text-align:center;
+
+  .image-container{
+    .image{
+        background:url("../images/camera-fpo.png");
+        background-size:cover;
+        img{
+          width:100%;
+          height:auto;
+          display: inline-block;
+          vertical-align: top;
+        }
+    }
+  }
+
+  .dot-container{
+    margin:5px 0;
+
+    .dot {
+      height: 8px;
+      width: 8px;
+      background-color: #a8a49c;
+      border-radius: 50%;
+      display: inline-block;
+      margin:0 2px;
+      cursor:pointer;
+
+      &.active{
+        background-color:#000;
+      }
+    }
+  }
+
+}

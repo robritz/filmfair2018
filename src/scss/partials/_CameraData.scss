@@ -1,0 +1,27 @@
+.camera-data{
+  ul{
+    li{
+      font-size:13px;
+      font-weight:bold;
+      padding:5px 0 6px 25px;
+      background-image:url("../images/camera-data-sprite.png");
+      background-repeat: no-repeat;
+      background-size:13%;
+      padding-left:30px;
+      background-position: 0px 2px;
+
+      &.film{
+        background-position: 0px -24px;
+      }
+      &.iso{
+        background-position: 0px -55px;
+      }
+      &.lens{
+        background-position: 0px -85px;
+      }
+      &.age{
+        background-position: 1px -117px;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+.camera{
+  margin-bottom:20px;
+  padding-bottom:8px;
+  border-bottom:1px solid #ccc;
+
+  h2{
+    font-size:18px;
+    margin-bottom:5px;
+    font-weight:bold;
+  }
+  h3{
+    font-size:14px;
+  }
+
+  .camera-data,
+  .camera-feels{
+    width:50%;
+    display:inline-block;
+    vertical-align: top;
+  }
+
+  .camera-notes{
+    margin:20px 0;
+  }
+}
+
+
+@import './_CameraData';
+@import './_CameraFeels';

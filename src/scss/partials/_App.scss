@@ -1,0 +1,50 @@
+.App{
+  position: relative;
+  max-width: 360px;
+  margin:0 auto;
+  overflow:hidden;
+
+  .header{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0.5rem;
+    background: #fff;
+    height: 40px;
+    z-index: 100;
+
+    .logo{
+      width:110px;
+      height:auto;
+      position: absolute;
+      right:.7rem;
+      top:.7rem;
+    }
+  }
+
+  .app-wrapper{
+    position: relative;
+    padding:3.5rem 0.5rem 0.5rem;
+  }
+
+  .footer{
+    position:fixed;
+    background:#fff;
+    bottom:0;
+    left:0;
+    right:0;
+    height:27px;
+    padding:0.5rem;
+    color:#454545;
+    z-index: 100;
+    
+    .about{
+      cursor:pointer;
+    }
+    .copyright{
+      position: absolute;
+      right:0.5rem;
+    }
+  }
+}
