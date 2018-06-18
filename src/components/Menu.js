@@ -7,59 +7,44 @@ class Menu extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isVisible: false
+      cameras: props.cameraData,
+      menuOption: -1
     }
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleItemClick(camera, e){
-    e.preventDefault();
-    this.toggleMenuVisible();
+  getMenuItems(type){
+    const cameras = this.state.cameras;
+    let returnArray = [<option value="-1">{type}</option>];
+    for(let i in cameras){
+      let camera = cameras[i];
+      returnArray.push(<option value={camera.id}>
+        {(type == 'Camera') ? camera.name : camera.category}
+      </option>);
+    }
+    return returnArray;
   }
 
-  toggleMenuVisible(){
+  handleChange(e){
+    const val = e.target.value;
+    // const element = document.getElementByClassName(`c-${val}`);
+    // element.scrollIntoView();
     this.setState({
-      isVisible: !this.state.isVisible
-    })
+      menuOption: val
+    });
   }
 
   render() {
 
-    const {isVisible} = this.state;
+    const cameras = this.state;
     return (
       <div className='Menu'>
-        <select className="cameras">
-          <option>Camera</option>
-          <option onClick={(e) => this.handleItemClick(0, e)}>Minolta Auto 35</option>
-          <option onClick={(e) => this.handleItemClick(1, e)}>Yashica Mat124G</option>
-          <option onClick={(e) => this.handleItemClick(2, e)}>Canon QL 17</option>
-          <option>Minolta XD11</option>
-          <option>Kodak Retina IIa</option>
-          <option>Kodak Brownie Hawkeye Folding</option>
-          <option>Minox B</option>
-          <option>Canon AE1 Program</option>
-          <option>Polaroid SX70</option>
-          <option>Sears R35</option>
-          <option>Pentax Point & Shoot</option>
-          <option>Nikon A3000</option>
-          <option>Minolta Maxxum 5</option>
+        <select className="cameras" onChange={this.handleChange} value={this.state.menuOption}>
+          {this.getMenuItems('Camera')}
         </select>
 
-        <select className="categories">
-          <option>Category</option>
-          <option>Human Portrait B/W</option>
-          <option>Human Portrait Color</option>
-          <option>Animal Portrait B/W</option>
-          <option>Animal Portrait Color</option>
-          <option>Urban Landscape B/W</option>
-          <option>Urban Landscape Color</option>
-          <option>Nature Landscape B/W</option>
-          <option>Nature Landscape Color</option>
-          <option>Architecture B/W</option>
-          <option>Architecture Color</option>
-          <option>Storyboard B/W</option>
-          <option>Storyboard Color</option>
-          <option>Creative In-The-Moment</option>
-          <option>Creative Photo Manipulation</option>
+        <select className="categories" onChange={this.handleChange} value={this.state.menuOption}>
+          {this.getMenuItems('Category')}
         </select>
       </div>
     );

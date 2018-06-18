@@ -8,17 +8,18 @@ class Camera extends Component {
   constructor(props){
     super(props);
     this.state = {
-      ...props.data
+      data: props.data,
+      cameraId: props.cameraId
     }
   }
 
   render() {
-    let data = this.state;
+    let data = this.state.data;
     return (
-      <div className="camera">
+      <div className={`camera c-${this.state.cameraId}`}>
         <h2>{data.name}</h2>
         <h3>{data.category}</h3>
-        <Carousel />
+        <Carousel images={data.images} />
         <CameraData data={data.data} />
         <CameraFeels feels={data.feels} />
         <div className="camera-notes">

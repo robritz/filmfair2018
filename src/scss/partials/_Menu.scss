@@ -1,12 +1,25 @@
 .Menu{
 
   select{
-    display: inline-block;
-    font-size: 13px;
-    width: 100px;
+    display: block;
+    font-size: 11px;
+    width: 220px;
     font-family: 'Arial Narrow';
     text-transform: uppercase;
     color: #454545;
+    background:url("../images/dropdown-arrow.png");
+    background-repeat:no-repeat;
+    background-color:#fff;
+    border:none;
+    border-radius:0;
+    background-position: 0;
+    padding-left: 13px;
+    text-indent:0.01px;
+    margin-bottom:3px;
+    outline:none;
+
+    -webkit-appearance:none;
+    appearance:none;
   }
 
 }
