@@ -42,9 +42,38 @@
     padding:0.5rem;
     color:#454545;
     z-index: 100;
+    min-height:0;
 
+    transition: min-height 0.5s;
+
+    .about-copy{
+      padding-top:20px;
+      font-size:12px;
+      font-family: Arial;
+      line-height:1.4;
+      height: 96%;
+      overflow: auto;
+
+      p{
+        padding-bottom:10px;
+      }
+    }
     .about{
       cursor:pointer;
+    }
+    .close-arrow{
+      display:none;
+    }
+
+    &.open{
+      min-height: 350px;
+
+      .close-arrow{
+        display:inline;
+      }
+      .open-arrow{
+        display:none;
+      }
     }
     .copyright{
       position: absolute;

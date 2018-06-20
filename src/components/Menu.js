@@ -1,54 +1,38 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const classNames = require('classnames');
+let Menu = ({cameras, cameraId, selectCamera}) => {
 
-class Menu extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      cameras: props.cameraData,
-      menuOption: -1
-    }
-    this.handleChange = this.handleChange.bind(this);
+  const menuTitles = {
+    cameras: 'All Cameras',
+    categories: 'All Categories'
   }
 
-  getMenuItems(type){
-    const cameras = this.state.cameras;
-    let returnArray = [<option value="-1">{type}</option>];
+  let getMenuItems = (type) => {
+    let returnArray = [<option value="-1" key={-1}>{type}</option>];
     for(let i in cameras){
       let camera = cameras[i];
-      returnArray.push(<option value={camera.id}>
-        {(type == 'Camera') ? camera.name : camera.category}
+      returnArray.push(<option value={camera.id} key={camera.id}>
+        {(type === menuTitles.cameras) ? camera.name : camera.category}
       </option>);
     }
     return returnArray;
   }
 
-  handleChange(e){
-    const val = e.target.value;
-    // const element = document.getElementByClassName(`c-${val}`);
-    // element.scrollIntoView();
-    this.setState({
-      menuOption: val
-    });
+  let handleChange = (e) => {
+    selectCamera(e.target.value);
   }
 
-  render() {
+  return (
+    <div className='Menu'>
+      <select className="cameras" onChange={handleChange} value={cameraId}>
+        {getMenuItems(menuTitles.cameras)}
+      </select>
 
-    const cameras = this.state;
-    return (
-      <div className='Menu'>
-        <select className="cameras" onChange={this.handleChange} value={this.state.menuOption}>
-          {this.getMenuItems('Camera')}
-        </select>
-
-        <select className="categories" onChange={this.handleChange} value={this.state.menuOption}>
-          {this.getMenuItems('Category')}
-        </select>
-      </div>
-    );
-  }
+      <select className="categories" onChange={handleChange} value={cameraId}>
+        {getMenuItems(menuTitles.categories)}
+      </select>
+    </div>
+  );
 }
 
 export default Menu;

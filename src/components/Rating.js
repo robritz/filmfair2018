@@ -1,15 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Rating extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      ...props
-    }
-  }
+const Rating = (data) => {
+  const score = data.score;
 
-  getVisualScore(){
-    let baseScore = this.state.score;
+  const getVisualScore = () => {
+    let baseScore = score;
     let floating = String(baseScore).indexOf(".") > -1;
     let returnElements = [];
 
@@ -19,23 +14,21 @@ class Rating extends Component {
     }
 
     for(let i = 0; i < baseScore; i++){
-      returnElements.push(<li><span>&nbsp;</span></li>);
+      returnElements.push(<li key={i}><span>&nbsp;</span></li>);
     }
 
     if(floating){
-      returnElements.push(<li className="half"><span>&nbsp;</span></li>);
+      returnElements.push(<li key={10} className="half"><span>&nbsp;</span></li>);
     }
 
     return returnElements;
   }
-  
-  render() {
-    return (
-      <ul className="rating">
-        {this.getVisualScore()}
-      </ul>
-    );
-  }
+
+  return (
+    <ul className="rating">
+      {getVisualScore()}
+    </ul>
+  );
 }
 
 export default Rating;
