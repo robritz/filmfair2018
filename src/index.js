@@ -10,7 +10,7 @@ import { createStore } from 'redux';
 import selectCamera from './reducers/selectCamera';
 
 function getAPIUrl(endpoint = 'getCameras'){
-  return `http://film-fair-2018.firebaseapp.com/${endpoint}`;
+  return `https://film-fair-2018.firebaseapp.com/${endpoint}`;
 }
 
 axios.get(getAPIUrl())
